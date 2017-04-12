@@ -1,0 +1,1 @@
+Paperclip::Attachment.default_options[:url] = 'h-deploy-test.s3.amazonaws.com' # '[バケット名].s3.amazonaws.com'
