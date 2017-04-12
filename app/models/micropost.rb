@@ -5,8 +5,8 @@ class Micropost < ActiveRecord::Base
     validates :user_id, presence: true
          # ファイル用の属性を追加するhas_attached_fileメソッド
     has_attached_file :image,
-                    #   :path => ":attachment/:id/:style.:extension",
-                    #   default_url: "/images/:style/missing.png",
+                    :path => ":attachment/:id/:style.:extension",
+                    default_url: "/images/:style/missing.png",
                     styles: { medium: "200x150>", thumb: "50x50>" }
                        
 
