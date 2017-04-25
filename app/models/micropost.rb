@@ -7,8 +7,9 @@ class Micropost < ActiveRecord::Base
     has_attached_file :image,
                     :path => ":attachment/:id/:style.:extension",
                     default_url: "/images/:style/missing.png",
-                    styles: { medium: "200x150>", thumb: "50x50>" }
-                       
+                    styles: { medium: "200x150>", thumb: "50x50>" },
+                    :storage => config.paperclip_defaults.storage,
+                    :s3_credentials => config.paperclip_defaults.s3_credentials
 
   #  画像の拡張子を限定するためのvalidatorを定義
     validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png image/gif)
